@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-whidth">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tsukimi+Rounded:wght@300&display=swap" rel="stylesheet">
+    <title>Encriptador De Textos</title>
+</head>
+<body>
+    <header>
+        <div class="Menu">
+        <h1><img src="Recursos/Logo.jpg" id="logo" alt="Logo"></h1>
+        <h1 class="Titulo">Encriptador De Textos</h1>
+        </div>
+    </header>
+
+    <main>
+            <textarea class="txtnormal" id="entrada" cols="70" rows="10" required placeholder="Ingrese El Texto Aqui (Solo letras minusculas y sin acentos)"></textarea>
+            <textarea class="txtencrip" id="salida" cols="30" rows="30" readonly></textarea>
+            <button class="Enc" id="encriptar">Encriptar Texto</button>
+            <button class="DesE" id="desencriptar">Desencriptar Texto</button>
+            <button class="Cop" id="copiar">Copiar Texto</button>
+           
+        <script>
+                const entrada = document.getElementById ("entrada");
+                const salida = document.getElementById ("salida");
+                const encriptar = document.getElementById ("encriptar");
+                encriptar.addEventListener ("click", function (){
+                    var texto = entrada.value;
+                    texto = texto.toLowerCase();
+                    texto = texto.replace('e' , 'enter');
+                    texto = texto.replace('i', 'imes');
+                    texto = texto.replace('a', 'ai');
+                    texto = texto.replace('o', 'ober');
+                    texto = texto.replace('u', 'ufat');
+                    salida.value = texto;
+                    texto = "";
+                    entrada.value =texto;
+                        });
+            
+        </script>
+
+        <script>
+                const entradaE = document.getElementById ("entrada");
+                const salidaE = document.getElementById ("salida");
+                const desencriptar = document.getElementById ("desencriptar");
+                desencriptar.addEventListener ("click", function (){
+                    var texto = entrada.value;
+                    texto = texto.toLowerCase();
+                    texto = texto.replace('enter', 'e');
+                    texto = texto.replace('imes', 'i');
+                    texto = texto.replace('ai', 'a');
+                    texto = texto.replace('ober', 'o');
+                    texto = texto.replace('ufat', 'u');
+                    salidaE.value = texto;
+                    texto = "";
+
+                        });
+        </script>
+
+
+        <script>
+            const entradaC = document.getElementById ("entrada");
+            const salidaC = document.getElementById ("salida");
+            const copiar = document.getElementById ("copiar");
+            copiar.addEventListener ("click", function (){
+                var texto =salidaC.value;
+                entradaC.value = texto;
+                    });
+        </script>
+
+    </main>
+
+    <footer>
+        <label>&copy;Victor Antonio Lopez Garcia</label>
+    </footer>
+
+
+
+
+
+    
+</body>
+</html>
